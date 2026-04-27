@@ -138,7 +138,7 @@
                         <div class="text-2xl mt-1">📅</div>
                         <div>
                             <p class="text-xs text-yellow-300 font-medium uppercase tracking-wider">Waktu</p>
-                            <p class="font-bold text-lg text-white">Sabtu, 13 Mei 2026</p>
+                            <p class="font-bold text-lg text-white">Sabtu, 13 Juni 2026</p>
                             <p class="text-xs text-gray-300">Pukul 09.00 - Selesai</p>
                         </div>
                     </div>
@@ -168,10 +168,19 @@
         <div class="h-px bg-gradient-to-r from-transparent via-white/20 to-transparent w-full my-8"></div>
         
         <p class="text-[10px] md:text-xs text-yellow-400 uppercase tracking-[0.5em] font-bold">
+            Kami Yang Berbahagia
+        </p>
+        <p class="text-lg text-white font-medium mt-2">
+             Yusuf Hidayah &  Annisa Fauziah
+        </p>
+    </div>
+<div class="h-px bg-gradient-to-r from-transparent via-white/20 to-transparent w-full my-8"></div>
+        
+        <p class="text-[10px] md:text-xs text-yellow-400 uppercase tracking-[0.5em] font-bold">
             Keluarga Besar
         </p>
         <p class="text-lg text-white font-medium mt-2">
-            Bpk. Yusuf Hidayah & Ibu Annisa Fauziah
+            Bpk. Casdam & Ibu Suharni (Alm)<br> Bpk. Timin Sutejo & Ibu Yanti Sartika
         </p>
     </div>
 </footer>
@@ -179,26 +188,27 @@
     </div>
 
     <script>
-        // Tanggal tujuan diubah ke 13 Mei 2026
-        const targetDate = new Date("May 13, 2026 09:00:00").getTime();
+        // Tanggal target: 13 Juni 2026 jam 09:00 Pagi
+        const targetDate = new Date("June 13, 2026 09:00:00").getTime();
 
         const countdown = setInterval(function() {
             const now = new Date().getTime();
             const distance = targetDate - now;
 
-            // Perhitungan waktu
+            // Logika matematika untuk Hari, Jam, Menit, dan Detik
             const d = Math.floor(distance / (1000 * 60 * 60 * 24));
             const h = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             const m = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
             const s = Math.floor((distance % (1000 * 60)) / 1000);
 
-            // Update elemen HTML (pastikan ID sesuai)
+            // Menampilkan hasil ke elemen HTML dengan ID masing-masing
+            // .padStart(2, '0') berfungsi agar angka 1-9 tetap tampil dua digit (01, 02, dst)
             document.getElementById("days").innerHTML = String(d).padStart(2, '0');
             document.getElementById("hours").innerHTML = String(h).padStart(2, '0');
             document.getElementById("minutes").innerHTML = String(m).padStart(2, '0');
             document.getElementById("seconds").innerHTML = String(s).padStart(2, '0');
 
-            // Jika waktu sudah lewat
+            // Jika waktu hitung mundur selesai
             if (distance < 0) {
                 clearInterval(countdown);
                 document.getElementById("days").innerHTML = "00";
